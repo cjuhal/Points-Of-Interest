@@ -47,9 +47,6 @@ public class PoiDetailFragment extends Fragment {
 
         if (getArguments().containsKey(ARG_ITEM_ID)) {
 
-//            String idPoi = getArguments().getString(ARG_ITEM_ID);         //getSerializable en vez de String
-//            poi = RepoPois.getInstance().getPoi(new Long(idPoi).longValue());
-
             poi = (Poi) getArguments().get(ARG_ITEM_ID);
 
             Activity activity = this.getActivity();
@@ -61,7 +58,7 @@ public class PoiDetailFragment extends Fragment {
         }
         }
     }
-//
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

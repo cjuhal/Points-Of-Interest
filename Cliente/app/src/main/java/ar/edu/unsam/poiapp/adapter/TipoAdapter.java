@@ -13,7 +13,7 @@ import ar.edu.unsam.poiapp.domain.Poi;
 public class TipoAdapter {
     static Map<String, Integer> mapaTipo;
 
-    private Map<String, Integer> getMapaGeneros() {
+    private Map<String, Integer> getMapaTipo() {
         if (mapaTipo == null) {
             mapaTipo = new HashMap<String, Integer>();
             mapaTipo.put("Colectivo", R.drawable.colectivo);
@@ -26,7 +26,7 @@ public class TipoAdapter {
     }
 
     public int getImgTipo(Poi poi) {
-        Integer result = getMapaGeneros().get(poi.getTipo());
+        Integer result = getMapaTipo().get(poi.getTipo());
         if (result == null) {
             return R.drawable.error;
         }

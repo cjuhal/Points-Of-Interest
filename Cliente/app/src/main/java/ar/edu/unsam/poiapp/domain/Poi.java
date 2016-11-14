@@ -15,11 +15,10 @@ public class Poi implements Serializable{
     String tipo;
     byte[] foto;
 
-    public Poi(String nombre, String direccion, String tipo) {
+    public Poi(String nombre, String direccion) {
 //        this.id = id;
         this.nombre = nombre;
         this.direccion = direccion;
-        this.tipo = tipo;
     }
     public Long getId() {
         return id;

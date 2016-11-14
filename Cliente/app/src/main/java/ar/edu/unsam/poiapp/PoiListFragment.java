@@ -95,7 +95,7 @@ public class PoiListFragment extends ListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        String BASE_URL = "http://10.0.3.2:9006/";
+        String BASE_URL = "http://10.0.2.2:9006/";
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
@@ -106,8 +106,6 @@ public class PoiListFragment extends ListFragment {
 
         Call<List<Poi>> poiCall = poiService.getPois();
 
-        //poiCall.execute(Response<List<Poi>> response, Retrofit retrofit);
-
         poiCall.enqueue(new Callback<List<Poi>>() {
             @Override
             public void onResponse(Response<List<Poi>> response, Retrofit retrofit) {
@@ -116,7 +114,6 @@ public class PoiListFragment extends ListFragment {
                 setListAdapter(new PoiAdapter(
                         getActivity(),
                         pois));
-                //RepoPois.getInstance().getPois(null, 10)));
             }
 
             @Override
@@ -128,11 +125,6 @@ public class PoiListFragment extends ListFragment {
         });
     }
 
-
-
-//        setListAdapter(new PoiAdapter(
-//                getActivity(),
-//                RepoPois.getInstance().getPois(null, 10)));
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -150,22 +142,19 @@ public class PoiListFragment extends ListFragment {
     }
 
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.poi_list_fragment, null, false);
 
-        // Activities containing this fragment must implement its callbacks.
-        if (!(activity instanceof Callbacks)) {
-            throw new IllegalStateException("Activity must implement fragment's callbacks.");
-        }
-
-        mCallbacks = (Callbacks) activity;
     }
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        // Reset the active callbacks interface to the dummy implementation.
-        mCallbacks = sDummyCallbacks;
+    private void setActivatedPosition(int position) {
+        if (position == ListView.INVALID_POSITION) {
+            getListView().setItemChecked(mActivatedPosition, false);
+        } else {
+            getListView().setItemChecked(position, true);
+        }
+
+        mActivatedPosition = position;
     }
 
     @Override
@@ -178,6 +167,15 @@ public class PoiListFragment extends ListFragment {
         Poi poi = (Poi) listView.getAdapter().getItem(position);
         Toast.makeText(getContext(), poi.getNombre(), Toast.LENGTH_LONG).show();
         mCallbacks.onItemSelected(poi);
+    }
+
+
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        // Reset the active callbacks interface to the dummy implementation.
+        mCallbacks = sDummyCallbacks;
     }
 
     @Override
@@ -202,19 +200,16 @@ public class PoiListFragment extends ListFragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.poi_list_fragment, null, false);
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
 
-    }
-
-    private void setActivatedPosition(int position) {
-        if (position == ListView.INVALID_POSITION) {
-            getListView().setItemChecked(mActivatedPosition, false);
-        } else {
-            getListView().setItemChecked(position, true);
+        // Activities containing this fragment must implement its callbacks.
+        if (!(activity instanceof Callbacks)) {
+            throw new IllegalStateException("Activity must implement fragment's callbacks.");
         }
 
-        mActivatedPosition = position;
+        mCallbacks = (Callbacks) activity;
     }
+
 }
 

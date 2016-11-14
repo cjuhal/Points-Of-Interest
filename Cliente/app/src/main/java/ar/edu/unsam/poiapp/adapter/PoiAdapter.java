@@ -46,15 +46,8 @@ public class PoiAdapter extends ArrayAdapter<Poi>{
             TextView tvTipo = (TextView) rowView.findViewById(R.id.lblTipo);
             tvTipo.setText(poi.getTipo());
 
-//            ImageView imgPoi = ((ImageView) rowView.findViewById(R.id.imgPoi));
-//            imgPoi.setImageDrawable(getResources().getDrawable(new TipoAdapter().getImgTipo(poi)));
-
-            ImageView myImageView = (ImageView) rowView.findViewById(R.id.imgPoi);
-            myImageView.setImageResource(new TipoAdapter().getImgTipo(poi));
-
-//            ImageView imgPoi = (ImageView) rowView.findViewById(R.id.imgPoi);
-//            ImgUtil.assignImage(poi, imgPoi);
-
+            ImageView imgPoi = (ImageView) rowView.findViewById(R.id.imgPoi);
+            imgPoi.setImageResource(new TipoAdapter().getImgTipo(poi));
 
             return rowView;
         }

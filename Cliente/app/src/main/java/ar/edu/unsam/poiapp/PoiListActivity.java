@@ -47,24 +47,8 @@ public class PoiListActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
 
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
-
         if (findViewById(R.id.poi_detail_container) != null) {
-            // The detail container view will be present only in the
-            // large-screen layouts (res/values-large and
-            // res/values-sw600dp). If this view is present, then the
-            // activity should be in two-pane mode.
             mTwoPane = true;
-
-            // In two-pane mode, list items should be given the
-            // 'activated' state when touched.
             ((PoiListFragment) getSupportFragmentManager()
                     .findFragmentById(R.id.poi_list))
                     .setActivateOnItemClick(true);
