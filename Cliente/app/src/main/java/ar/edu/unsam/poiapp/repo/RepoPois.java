@@ -40,18 +40,18 @@ public class RepoPois {
 
     private void init() {
 
-        RepoPois.getInstance().agregarPoi(new Poi("Banco Santander","Calle Sin Numero 123"));
-        RepoPois.getInstance().agregarPoi(new Poi("Linea 111",null));
-        RepoPois.getInstance().agregarPoi(new Poi("Verduleria Don Manolo","La Paz 666"));
-        RepoPois.getInstance().agregarPoi(new Poi("CGP La Boca","Madero 3453"));
-        RepoPois.getInstance().agregarPoi(new Poi("Banco Nacion","Av Membrillo 444"));
-        RepoPois.getInstance().agregarPoi(new Poi("Linea 343",null));
-        RepoPois.getInstance().agregarPoi(new Poi("Vivero Loto Azul","Rivadavia 10666"));
-        RepoPois.getInstance().agregarPoi(new Poi("CGP Urquiza","Galvan 3323"));
-        RepoPois.getInstance().agregarPoi(new Poi("Banco Provincia","Vereda 6765"));
-        RepoPois.getInstance().agregarPoi(new Poi("Linea 161",null));
-        RepoPois.getInstance().agregarPoi(new Poi("Verduleria Las Amandas","Guerra 777"));
-        RepoPois.getInstance().agregarPoi(new Poi("CGP Pompeya","Industria 1933"));
+        RepoPois.getInstance().agregarPoi(new Poi("Banco Santander","Calle Sin Numero 123","colectivo"));
+        RepoPois.getInstance().agregarPoi(new Poi("Linea 111",null,"colectivo"));
+        RepoPois.getInstance().agregarPoi(new Poi("Verduleria Don Manolo","La Paz 666","colectivo"));
+        RepoPois.getInstance().agregarPoi(new Poi("CGP La Boca","Madero 3453","colectivo"));
+        RepoPois.getInstance().agregarPoi(new Poi("Banco Nacion","Av Membrillo 444","colectivo"));
+        RepoPois.getInstance().agregarPoi(new Poi("Linea 343",null,"colectivo"));
+        RepoPois.getInstance().agregarPoi(new Poi("Vivero Loto Azul","Rivadavia 10666","colectivo"));
+        RepoPois.getInstance().agregarPoi(new Poi("CGP Urquiza","Galvan 3323","colectivo"));
+        RepoPois.getInstance().agregarPoi(new Poi("Banco Provincia","Vereda 6765","colectivo"));
+        RepoPois.getInstance().agregarPoi(new Poi("Linea 161",null,"colectivo"));
+        RepoPois.getInstance().agregarPoi(new Poi("Verduleria Las Amandas","Guerra 777","colectivo"));
+        RepoPois.getInstance().agregarPoi(new Poi("CGP Pompeya","Industria 1933","colectivo"));
     }
 
 

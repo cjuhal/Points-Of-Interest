@@ -12,11 +12,13 @@ public class Poi implements Serializable{
 
     String nombre;
     String direccion;
+    String tipo;
 
-    public Poi(String nombre, String direccion) {
+    public Poi(String nombre, String direccion, String tipo) {
 //        this.id = id;
         this.nombre = nombre;
         this.direccion = direccion;
+        this.tipo = tipo;
     }
     public Long getId() {
         return id;
@@ -50,7 +52,11 @@ public class Poi implements Serializable{
     }
 
 
+    public String getTipo() {
+        return tipo;
+    }
 
-
-
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
 }

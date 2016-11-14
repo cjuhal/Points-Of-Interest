@@ -40,8 +40,8 @@ public class PoiAdapter extends ArrayAdapter<Poi>{
             TextView tvPoi = (TextView) rowView.findViewById(R.id.lblPoi);
             tvPoi.setText(poi.getNombre());
 
-//            TextView tvActores = (TextView) rowView.findViewById(R.id.lblActores);
-//            tvActores.setText(poi.getActores());
+            TextView tvTipo = (TextView) rowView.findViewById(R.id.lblTipo);
+            tvTipo.setText(poi.getTipo());
             return rowView;
         }
     }
