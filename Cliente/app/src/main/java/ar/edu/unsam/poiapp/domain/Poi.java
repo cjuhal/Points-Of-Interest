@@ -13,6 +13,7 @@ public class Poi implements Serializable{
     String nombre;
     String direccion;
     String tipo;
+    byte[] foto;
 
     public Poi(String nombre, String direccion, String tipo) {
 //        this.id = id;
@@ -24,6 +25,13 @@ public class Poi implements Serializable{
         return id;
     }
 
+    public byte[] getFoto() {
+        return foto;
+    }
+
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
+    }
 
     public void setId(Long id) {
         this.id = id;

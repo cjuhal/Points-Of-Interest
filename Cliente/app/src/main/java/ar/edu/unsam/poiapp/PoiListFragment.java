@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 import java.util.List;
 
 import ar.edu.unsam.poiapp.adapter.PoiAdapter;
+import ar.edu.unsam.poiapp.adapter.TipoAdapter;
 import ar.edu.unsam.poiapp.domain.Poi;
 import ar.edu.unsam.poiapp.repo.RepoPois;
 import ar.edu.unsam.poiapp.service.PoiService;
@@ -202,6 +204,7 @@ public class PoiListFragment extends ListFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.poi_list_fragment, null, false);
+
     }
 
     private void setActivatedPosition(int position) {
