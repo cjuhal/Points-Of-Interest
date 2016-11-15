@@ -95,7 +95,7 @@ public class PoiListFragment extends ListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        String BASE_URL = "http://10.0.3.2:9006/";
+        String BASE_URL = "http://10.0.2.2:9006/";
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)

@@ -7,7 +7,7 @@ import java.util.List;
  * Created by JD on 07/11/2016.
  */
 
-public class Poi implements Serializable{
+public class Poi implements Serializable {
 
     Long id;
     String nombre;
@@ -17,6 +17,39 @@ public class Poi implements Serializable{
     public String getCalificacion() {
         return calificacion.getPromedioCalificacion();
     }
+    public String getNombreRubro() {
+        return rubro.getNombre();
+    }
+
+    public String getCercaniaRubro() {
+        return rubro.getCercania();
+    }
+
+    public void setRubro(Rubro rubro) {
+        this.rubro = rubro;
+    }
+
+    Rubro rubro;
+
+    List<Punto> recorrido;
+
+    public String getRecorrido(){
+        return String.valueOf(recorrido.size());
+    }
+
+    public String getHorarioInicio() {
+        return horario.getInicio();
+    }
+
+    public String getHorarioFin() {
+        return horario.getFin();
+    }
+
+    public void setHorario(Horario horario) {
+        this.horario = horario;
+    }
+
+    Horario horario;
     public String getReviews() {
         return calificacion.getReviews();
     }
@@ -28,10 +61,13 @@ public class Poi implements Serializable{
     Calificacion calificacion;
 
 
+
+
     public Poi(String nombre, String direccion) {
         this.nombre = nombre;
         this.direccion = direccion;
     }
+
     public Long getId() {
         return id;
     }
@@ -41,7 +77,7 @@ public class Poi implements Serializable{
     }
 
     public String getDireccion() {
-        if (direccion == null) {
+        if (direccion == "") {
             return "(sin dirección)";
         }
         return direccion;
@@ -50,7 +86,6 @@ public class Poi implements Serializable{
     public String getTipo() {
         return tipo;
     }
-
 
 
     public void setId(Long id) {

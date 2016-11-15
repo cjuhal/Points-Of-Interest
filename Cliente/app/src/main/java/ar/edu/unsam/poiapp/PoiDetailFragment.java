@@ -80,7 +80,9 @@ public class PoiDetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        this.rootView = inflater.inflate(R.layout.colectivo_detail, container, false);
+        //this.rootView = inflater.inflate(R.layout.colectivo_detail, container, false);
+
+        this.rootView = inflater.inflate(new TipoAdapter().getLayoutTipo(poi), container, false);
 
         if (Objects.equals(poi.getTipo(), "Colectivo")) {
             new ColectivoAdapter().getView(rootView,poi);
@@ -98,28 +100,5 @@ public class PoiDetailFragment extends Fragment {
         return rootView;
     }
 
-
-//    private void getDetalle() {
-//
-//        Call<List<Detalle>> detalleCall = poiservice.getDetalle(poi.getTipo());
-//
-//        detalleCall.enqueue(new Callback<List<Detalle>>() {
-//            @Override
-//            public void onResponse(Response<List<Detalle>> response, Retrofit retrofit) {
-//                List<Detalle> detalles = response.body();
-//
-//                setListAdapter(new DetalleAdapter(
-//                        getActivity(),
-//                        detalles));
-//
-//            }
-//
-//            @Override
-//            public void onFailure(Throwable t) {
-//                t.printStackTrace();
-//                Log.e("PeliculasApp", t.getMessage());
-//            }
-//        });
-//    }
 }
 

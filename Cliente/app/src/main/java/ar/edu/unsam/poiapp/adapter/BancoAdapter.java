@@ -14,6 +14,7 @@ public class BancoAdapter {
     public View getView(View rootView, Poi poi) {
 
         ((TextView) rootView.findViewById(R.id.direccion)).setText("Dirección: \n" + poi.getDireccion() + "\n");
+        ((TextView) rootView.findViewById(R.id.horario)).setText("Horario: \nApertura: " + poi.getHorarioInicio() + "\nClausura:" + poi.getHorarioFin() + "\n");
         ((TextView) rootView.findViewById(R.id.calificacionGeneral)).setText("Calificación General: " + poi.getCalificacion() + "\n" );
         ((TextView) rootView.findViewById(R.id.calificacion)).setText("Review: \n" + poi.getReviews());
 //                ((TextView) rootView.findViewById(R.id.barrio)).setText("Barrio: \n" + poi.getDireccion());
