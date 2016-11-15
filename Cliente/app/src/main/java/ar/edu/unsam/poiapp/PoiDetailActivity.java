@@ -9,6 +9,9 @@ import android.view.View;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
+import android.widget.TextView;
+
+import ar.edu.unsam.poiapp.domain.Poi;
 
 /**
  * An activity representing a single Poi detail screen. This
@@ -60,4 +63,7 @@ public class PoiDetailActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
+
 }

@@ -9,6 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.Objects;
+
+import ar.edu.unsam.poiapp.adapter.BancoAdapter;
+import ar.edu.unsam.poiapp.adapter.CgpAdapter;
+import ar.edu.unsam.poiapp.adapter.ColectivoAdapter;
+import ar.edu.unsam.poiapp.adapter.LocalComercialAdapter;
+import ar.edu.unsam.poiapp.adapter.TipoAdapter;
 import ar.edu.unsam.poiapp.domain.Poi;
 import ar.edu.unsam.poiapp.repo.RepoPois;
 import ar.edu.unsam.poiapp.service.PoiService;
@@ -32,6 +39,9 @@ public class PoiDetailFragment extends Fragment {
      * The dummy content this fragment is presenting.
      */
     private Poi poi;
+    private PoiDetailActivity detailActivity;
+    private View rootView;
+
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
@@ -44,7 +54,6 @@ public class PoiDetailFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
 
-
         if (getArguments().containsKey(ARG_ITEM_ID)) {
 
             poi = (Poi) getArguments().get(ARG_ITEM_ID);
@@ -54,22 +63,31 @@ public class PoiDetailFragment extends Fragment {
             if (appBarLayout != null) {
                 appBarLayout.setTitle(poi.getNombre());  // Aca va el titulo de la barra superior de detalle
             } else {
-            activity.setTitle(poi.getNombre());
-        }
+                activity.setTitle(poi.getNombre());
+            }
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.poi_detail, container, false);
 
-        if (poi != null) {
-            ((TextView) rootView.findViewById(R.id.poi_detail)).setText(poi.getNombre());
+        this.rootView = inflater.inflate(R.layout.colectivo_detail, container, false);
 
-            ((TextView) rootView.findViewById(R.id.poi_detail)).setText("Dirección: \n"+poi.getDireccion());
+        if (Objects.equals(poi.getTipo(), "Colectivo")) {
+            new ColectivoAdapter().getView(rootView,poi);
+        }
+        if (Objects.equals(poi.getTipo(), "Banco")) {
+            new BancoAdapter().getView(rootView,poi);
+        }
+        if (Objects.equals(poi.getTipo(), "Cgp")) {
+            new CgpAdapter().getView(rootView,poi);
+        }
+        if (Objects.equals(poi.getTipo(), "LocalComercial")) {
+            new LocalComercialAdapter().getView(rootView,poi);
         }
 
         return rootView;
     }
 }
+
