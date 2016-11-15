@@ -1,6 +1,7 @@
 package ar.edu.unsam.poiapp.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by JD on 07/11/2016.
@@ -9,14 +10,25 @@ import java.io.Serializable;
 public class Poi implements Serializable{
 
     Long id;
-
     String nombre;
     String direccion;
     String tipo;
-    byte[] foto;
+
+    public String getCalificacion() {
+        return calificacion.getPromedioCalificacion();
+    }
+    public String getReviews() {
+        return calificacion.getReviews();
+    }
+
+    public void setCalificacion(Calificacion calificacion) {
+        this.calificacion = calificacion;
+    }
+
+    Calificacion calificacion;
+
 
     public Poi(String nombre, String direccion) {
-//        this.id = id;
         this.nombre = nombre;
         this.direccion = direccion;
     }
@@ -24,46 +36,41 @@ public class Poi implements Serializable{
         return id;
     }
 
-    public byte[] getFoto() {
-        return foto;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setFoto(byte[] foto) {
-        this.foto = foto;
+    public String getDireccion() {
+        if (direccion == null) {
+            return "(sin dirección)";
+        }
+        return direccion;
     }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
     }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public String getDireccion() {
-        if (direccion == null) {
-            return "(sin dirección)";}
-        return direccion;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
 
+
     public String toString() {
         return nombre;
-    }
-
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
     }
 }

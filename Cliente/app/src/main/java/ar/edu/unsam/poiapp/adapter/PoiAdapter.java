@@ -1,7 +1,6 @@
 package ar.edu.unsam.poiapp.adapter;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,6 @@ import java.util.List;
 
 import ar.edu.unsam.poiapp.R;
 import ar.edu.unsam.poiapp.domain.Poi;
-import ar.edu.unsam.poiapp.util.ImgUtil;
 
 
 /**
