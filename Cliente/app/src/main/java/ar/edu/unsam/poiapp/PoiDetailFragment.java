@@ -4,22 +4,30 @@ import android.app.Activity;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.List;
 import java.util.Objects;
 
 import ar.edu.unsam.poiapp.adapter.BancoAdapter;
 import ar.edu.unsam.poiapp.adapter.CgpAdapter;
 import ar.edu.unsam.poiapp.adapter.ColectivoAdapter;
+import ar.edu.unsam.poiapp.adapter.DetalleAdapter;
 import ar.edu.unsam.poiapp.adapter.LocalComercialAdapter;
 import ar.edu.unsam.poiapp.adapter.TipoAdapter;
+import ar.edu.unsam.poiapp.domain.Detalle;
 import ar.edu.unsam.poiapp.domain.Poi;
 import ar.edu.unsam.poiapp.repo.RepoPois;
 import ar.edu.unsam.poiapp.service.PoiService;
+import retrofit.Call;
+import retrofit.Callback;
 import retrofit.GsonConverterFactory;
+import retrofit.Response;
 import retrofit.Retrofit;
 
 /**
@@ -39,7 +47,7 @@ public class PoiDetailFragment extends Fragment {
      * The dummy content this fragment is presenting.
      */
     private Poi poi;
-    private PoiDetailActivity detailActivity;
+    private PoiService poiservice;
     private View rootView;
 
     /**
@@ -89,5 +97,29 @@ public class PoiDetailFragment extends Fragment {
 
         return rootView;
     }
+
+
+//    private void getDetalle() {
+//
+//        Call<List<Detalle>> detalleCall = poiservice.getDetalle(poi.getTipo());
+//
+//        detalleCall.enqueue(new Callback<List<Detalle>>() {
+//            @Override
+//            public void onResponse(Response<List<Detalle>> response, Retrofit retrofit) {
+//                List<Detalle> detalles = response.body();
+//
+//                setListAdapter(new DetalleAdapter(
+//                        getActivity(),
+//                        detalles));
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Throwable t) {
+//                t.printStackTrace();
+//                Log.e("PeliculasApp", t.getMessage());
+//            }
+//        });
+//    }
 }
 
